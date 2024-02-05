@@ -4,17 +4,17 @@ import SearchBar from './components/SearchBar'
 import Books from './components/Books'
 import useUnsplashApi from './hooks/useUnsplashApi';
 import './index.scss'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const App = () => {
 
   const { response, loading, error, fetchDataAsync } = useUnsplashApi();
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const title = response && response.books && response.books[0] && response.books[0][0]?.title;
-
-  console.log('response:', response);
-  console.log('specific data:', title);
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
 
   useEffect(() => {
     fetchDataAsync()
@@ -22,8 +22,8 @@ const App = () => {
 
   return (
     <div>
-      <SearchBar />
-      <Books response={response} loading={loading} error={error}/>
+      <SearchBar onSearch={handleSearch} />
+      <Books response={response} loading={loading} error={error} searchTerm={searchTerm} />
     </div>
 
   )

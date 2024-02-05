@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './index.scss'
 
-const SearchBar = ({fetchDataAsync}) => {
+const SearchBar = ({ fetchDataAsync, onSearch }) => {
 
     const [localSearchTerm, setLocalSearchTerm] = useState('');
 
     const handleSearch = () => {
-        fetchDataAsync(localSearchTerm);
+        onSearch(localSearchTerm);
     };
 
     return (
