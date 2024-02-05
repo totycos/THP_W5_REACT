@@ -11,8 +11,8 @@ const Books = ({ response, loading, error }) => {
   return (
 
     <div className='cardContainer'>
-      {response.books[0].map((bookData) => (
-        <Book data={bookData} key={bookData.id} />
+      {response.books[0].map((bookData, index) => (
+        <Book data={bookData} key={index} />
       ))}
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import SearchBar from './components/SearchBar'
 import Books from './components/Books'
 import useUnsplashApi from './hooks/useUnsplashApi';
 import './index.scss'
@@ -21,6 +22,7 @@ const App = () => {
 
   return (
     <div>
+      <SearchBar />
       <Books response={response} loading={loading} error={error}/>
     </div>
 
