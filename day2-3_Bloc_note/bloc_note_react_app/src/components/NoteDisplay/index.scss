@@ -1,0 +1,10 @@
+$border-color : rgba(235, 235, 235, 0.62);
+
+.viewer {
+    xbackground-color: silver;
+    height: calc(50% - 30px);
+    margin-left: 6px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid $border-color;
+    padding: 0px 20px;
+}

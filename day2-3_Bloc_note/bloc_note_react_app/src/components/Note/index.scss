@@ -1,0 +1,16 @@
+.note {
+    margin: 18px 5px;
+
+    &:first-child {
+        margin-top: 36px;
+    }
+
+    &__title {
+        margin: 0px 16px 0px 0px;
+    }
+
+    &__text {
+        margin: 0px 16px 0px 0px;
+        text-align: justify; 
+    }
+}
