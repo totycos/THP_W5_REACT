@@ -16,7 +16,7 @@
 
     En cliquant sur "save", l'utilisateur sauvegarde la note. C'est-à-dire que s'il recharge la page, sa note est toujours visible dans la liste à gauche. Il faudra donc sauvegarder les notes dans le localStorage.
 ## User stories
-L'utilisateur peut ajouter une note.
-L'utilisateur peut modifier une note.
-L'utilisateur peut consulter une note.
-L'utilisateur peut basculer entre les notes pour voir celle qui lui plaît.
+- L'utilisateur peut ajouter une note.
+- L'utilisateur peut modifier une note.
+- L'utilisateur peut consulter une note.
+- L'utilisateur peut basculer entre les notes pour voir celle qui lui plaît.
