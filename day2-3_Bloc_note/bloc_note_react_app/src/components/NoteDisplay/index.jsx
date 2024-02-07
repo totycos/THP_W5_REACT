@@ -12,9 +12,6 @@ const NoteDisplay = ({ note }) => {
     return {__html: 'Premier &middot; Second'};
   }
 
-  console.log('note: ', note)
-  console.log(converter.makeHtml('salut'))
-
 useEffect(() => {
   setTitleHtml(converter.makeHtml(note.title || ''))
   setTextHtml(converter.makeHtml(note.text || ''))

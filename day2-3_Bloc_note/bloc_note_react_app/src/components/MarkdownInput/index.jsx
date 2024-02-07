@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import './index.scss'
 
-const MarkdownInput = ({ onNote }) => {
+const MarkdownInput = ({ onNote, selectNote }) => {
   const [values, setValues] = useState({ id: 0, title: '', text: '' }); 
   
   const handleOnChange = (name) => {  
@@ -19,6 +19,14 @@ const MarkdownInput = ({ onNote }) => {
     onNote(values)
   }, [values])
 
+  useEffect(() => {
+    console.log('######### UseEffect activate ########, selectNote :', selectNote)
+    if (selectNote.id !== undefined) {
+      console.log('selectNote in Markdown :', selectNote)
+      setValues({id: selectNote.id, title: selectNote.title, text: selectNote.text})
+    }
+  }, [selectNote])
+
   const handleSave = () => {
     // get notes saved in localStorage and convert them straight in JSON
     const notesToUpdate = JSON.parse(localStorage.notesStorage)
@@ -35,8 +43,8 @@ const MarkdownInput = ({ onNote }) => {
 
   return (
     <div className='form'>
-      <input className='form__title' type='text' value={values.title} onChange={handleOnChange('title')} placeholder='Here your title'/>
-      <textarea className='form__text' value={values.text} onChange={handleOnChange('text')} placeholder='Here your note'></textarea>
+      <input className='form__title' type='text' value={values.title} onChange={handleOnChange('title')} placeholder='Here your title' />
+      <textarea className='form__text' value={values.text} onChange={handleOnChange('text')} placeholder='Here your note' defaultValue={selectNote ? selectNote.text : ''}></textarea>
       <p className='form__btn' onClick={handleSave}>Sauvegarder</p>
     </div>
   )

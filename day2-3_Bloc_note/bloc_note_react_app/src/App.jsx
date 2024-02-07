@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react'
+import { React, useState, useEffect } from 'react'
 import Notes from './components/Notes'
 import NoteDisplay from "./components/NoteDisplay"
 import MarkdownInput from "./components/MarkdownInput"
@@ -7,22 +7,32 @@ import './App.scss'
 const App = () => {
     const [note, setNote] = useState([]);
     const [noteList, setNoteList] = useState([])
+    const [selectNote, setSelectNote] = useState('')
+
 
     const handleNote = (value) => { // function to set SearchTerm
         setNote(value);
-        };
+    };
 
     useEffect(() => {
         setNoteList(JSON.parse(localStorage.notesStorage))
-        //console.log('on est dans App - note.id :', note.id)
     }, [note.id])
+
+
+    const handleSelectNote = (id) => {
+        setSelectNote(id)
+    }
+
+    useEffect(() => {
+    }, [selectNote])
+
 
     return (
         <>
-            <Notes noteList={noteList}/>
+            <Notes noteList={noteList} onSelectNote={handleSelectNote} />
             <div className='rightSideContainer'>
-            <NoteDisplay note={note} />
-            <MarkdownInput onNote={handleNote}/>
+                <NoteDisplay note={note} selecttNote={selectNote} />
+                <MarkdownInput onNote={handleNote} selectNote={selectNote} />
             </div>
         </>
     )
