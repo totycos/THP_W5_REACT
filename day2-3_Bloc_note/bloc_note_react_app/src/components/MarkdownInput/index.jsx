@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import './index.scss'
 
-const MarkdownInput = ({ onNote, selectNote, newNote }) => {
+const MarkdownInput = ({ onNote, selectNote, newNote, onSavedNote }) => {
   const [values, setValues] = useState({ id: 0, title: '', text: '' }); 
   
   const handleOnChange = (name) => {  
@@ -47,7 +47,7 @@ const MarkdownInput = ({ onNote, selectNote, newNote }) => {
       // convert the notes back to string and save it in localStorage
       localStorage.notesStorage = JSON.stringify(notesToUpdate);
       // on incremente l'id de 1 pour la prochaine note
-      setValues({ ...values, id: values.id + 1 })
+      /////setValues({ ...values, id: values.id + 1 })
     }
     // If a note with the same id than values EXIST in notesToUpdate
     else {
@@ -60,9 +60,10 @@ const MarkdownInput = ({ onNote, selectNote, newNote }) => {
       notesToUpdate.push(exportValuesWithNewId)
       // convert the notes back to string and save it in localStorage
       localStorage.notesStorage = JSON.stringify(notesToUpdate);
-      setValues({ ...values, id: maxId + 2 })
+      /////setValues({ ...values, id: maxId + 2 })
     }
     
+    onSavedNote()
     console.log('localStorage :', JSON.parse(localStorage.notesStorage))
   }
 

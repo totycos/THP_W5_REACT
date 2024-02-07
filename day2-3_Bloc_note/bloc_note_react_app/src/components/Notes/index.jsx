@@ -2,12 +2,13 @@ import { React, useState, useEffect } from 'react'
 import Note from '../Note'
 import './index.scss'
 
-const Notes = ({ noteList, onSelectNote }) => {
+const Notes = ({ noteList, onSelectNote, savedNote }) => {
   const [notes, setNotes] = useState(noteList)
 
     useEffect(() => {
         setNotes(noteList)
     }, [noteList])
+  
 
   return (
     <div className='noteContainer'>

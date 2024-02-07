@@ -10,6 +10,7 @@ const App = () => {
     const [noteList, setNoteList] = useState([])
     const [selectNote, setSelectNote] = useState('')
     const [newNote, setNewNote] = useState(false)
+    const [savedNote, setSavedNote] = useState(false)
 
 
     const handleNote = (value) => { // function to set SearchTerm
@@ -18,7 +19,7 @@ const App = () => {
 
     useEffect(() => {
         setNoteList(JSON.parse(localStorage.notesStorage))
-    }, [note.id])
+    }, [savedNote])
 
 
     const handleSelectNote = (id) => {
@@ -32,6 +33,10 @@ const App = () => {
         setNewNote(!newNote)
     }
 
+    const handleSavedNote = () => {
+        setSavedNote(!savedNote)
+    }
+
 
     return (
         <>
@@ -42,7 +47,7 @@ const App = () => {
             
             <div className='rightSideContainer'>
                 <NoteDisplay note={note} selecttNote={selectNote} />
-                <MarkdownInput onNote={handleNote} selectNote={selectNote} newNote={newNote} />
+                <MarkdownInput onNote={handleNote} selectNote={selectNote} newNote={newNote} onSavedNote={handleSavedNote} />
             </div>
         </>
     )
