@@ -27,15 +27,36 @@ const MarkdownInput = ({ onNote, selectNote }) => {
     }
   }, [selectNote])
 
+  useEffect(() => {
+
+  }, [values.id])
+
   const handleSave = () => {
     // get notes saved in localStorage and convert them straight in JSON
-    const notesToUpdate = JSON.parse(localStorage.notesStorage)
-    // add new note
-    notesToUpdate.push(values)
-    // convert the notes back to string and save it in localStorage
-    localStorage.notesStorage = JSON.stringify(notesToUpdate);
-    // on incremente l'id de 1 pour la prochaine note
-    setValues({ ...values, id: values.id + 1 })
+    let notesToUpdate = JSON.parse(localStorage.notesStorage)
+    // ADD NEW NOTE
+    // If a note with the same id than values DOESN'T EXIST in notesToUpdate
+    if (!notesToUpdate.some(note => note.id === values.id)) {
+      notesToUpdate.push(values)
+      // convert the notes back to string and save it in localStorage
+      localStorage.notesStorage = JSON.stringify(notesToUpdate);
+      // on incremente l'id de 1 pour la prochaine note
+      setValues({ ...values, id: values.id + 1 })
+    }
+    // If a note with the same id than values EXIST in notesToUpdate
+    else {
+      // Remove the note with the same id than value.id from notesToUpdate
+      notesToUpdate = notesToUpdate.filter(note => note.id !== values.id);
+      // Search the last saved id
+      const maxId = notesToUpdate.reduce((max, note) => (note.id > max ? note.id : max), -1);
+      // Change current value.id to save the note with a new id
+      const exportValuesWithNewId = { ...values, id: maxId + 1 };
+      notesToUpdate.push(exportValuesWithNewId)
+      // convert the notes back to string and save it in localStorage
+      localStorage.notesStorage = JSON.stringify(notesToUpdate);
+      setValues({ ...values, id: maxId + 2 })
+    }
+    
     console.log('localStorage :', JSON.parse(localStorage.notesStorage))
   }
 
