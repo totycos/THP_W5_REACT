@@ -73,7 +73,7 @@ const MarkdownInput = ({ onNote, selectNote, newNote, onSavedNote }) => {
     <div className='form'>
       <input className='form__title' type='text' value={values.title} onChange={handleOnChange('title')} placeholder='Here your title' />
       <textarea className='form__text' value={values.text} onChange={handleOnChange('text')} placeholder='Here your note...' defaultValue={selectNote ? selectNote.text : ''}></textarea>
-      <p className='form__btn' onClick={handleSave}>Sauvegarder</p>
+      <p className='form__btn' onClick={handleSave}>Save</p>
     </div>
   )
 }
