@@ -1,10 +1,28 @@
 $border-color : rgba(235, 235, 235, 0.62);
 
-.viewer {
-    xbackground-color: silver;
+.viewerContainer {
+    position: relative;
     height: calc(50% - 30px);
-    margin-left: 6px;
     margin-bottom: 6px;
-    border-bottom: 1px solid $border-color;
+    margin-left: 6px;
+    /* margin-bottom: 6px; */
+    border-bottom: 1px solid rgba(235, 235, 235, 0.62);
+    box-shadow: inset 0em 3px 18px white;
+}
+
+.borderShadow {
+    box-shadow: inset 0em 29px 6px white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff00;
+    z-index: 2;
+    pointer-events: none;
+
+}
+
+.viewer {
+    height: 100%;
     padding: 0px 20px;
+    overflow: auto;
 }

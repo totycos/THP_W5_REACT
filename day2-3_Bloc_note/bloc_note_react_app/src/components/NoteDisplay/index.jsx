@@ -18,9 +18,12 @@ useEffect(() => {
 }, [note])
 
   return (
-    <div className='viewer'>
-      <h1 dangerouslySetInnerHTML={{ __html: titleHtml }} />
-      <p dangerouslySetInnerHTML={{ __html: textHtml }} />
+    <div className="viewerContainer">
+      <div className="borderShadow"></div>
+      <div className='viewer'>
+        <h1 dangerouslySetInnerHTML={{ __html: titleHtml }} />
+        <p dangerouslySetInnerHTML={{ __html: textHtml }} />
+    </div>
     </div>
   )
 }

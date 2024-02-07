@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react'
+import NewNote from './components/NewNote'
 import Notes from './components/Notes'
 import NoteDisplay from "./components/NoteDisplay"
 import MarkdownInput from "./components/MarkdownInput"
@@ -29,7 +30,11 @@ const App = () => {
 
     return (
         <>
-            <Notes noteList={noteList} onSelectNote={handleSelectNote} />
+            <div className='leftSideContainer'>
+                <NewNote />
+                <Notes noteList={noteList} onSelectNote={handleSelectNote} />
+            </div>
+            
             <div className='rightSideContainer'>
                 <NoteDisplay note={note} selecttNote={selectNote} />
                 <MarkdownInput onNote={handleNote} selectNote={selectNote} />

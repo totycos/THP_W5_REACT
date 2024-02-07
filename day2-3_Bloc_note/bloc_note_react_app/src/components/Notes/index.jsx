@@ -13,7 +13,7 @@ const Notes = ({ noteList, onSelectNote }) => {
     <div className='noteContainer'>
         { noteList.length > 0 ? noteList.map((note) => (
             <Note key={note.id} note={note} onSelectNote={onSelectNote} />
-        )) : <p>No notes yet</p> }
+        )) : <p className='noNote'>No notes yet</p> }
     </div>
   )
 }
