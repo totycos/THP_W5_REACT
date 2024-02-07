@@ -3,6 +3,7 @@ import NewNote from './components/NewNote'
 import Notes from './components/Notes'
 import NoteDisplay from "./components/NoteDisplay"
 import MarkdownInput from "./components/MarkdownInput"
+import Footer from './components/Footer'
 import './App.scss'
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
             <div className='rightSideContainer'>
                 <NoteDisplay note={note} selecttNote={selectNote} />
                 <MarkdownInput onNote={handleNote} selectNote={selectNote} newNote={newNote} onSavedNote={handleSavedNote} />
+                <Footer />
             </div>
         </>
     )

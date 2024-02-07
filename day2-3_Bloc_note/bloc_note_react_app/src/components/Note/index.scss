@@ -8,6 +8,12 @@
 
     &__text {
         margin: 0px 16px 0px 0px;
-        text-align: justify; 
+        max-height: 58px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        white-space: pre-line;
     }
 }

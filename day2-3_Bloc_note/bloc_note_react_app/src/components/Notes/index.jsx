@@ -12,7 +12,7 @@ const Notes = ({ noteList, onSelectNote, savedNote }) => {
 
   return (
     <div className='noteContainer'>
-        { noteList.length > 0 ? noteList.map((note) => (
+        { noteList.length > 0 ? noteList.slice().reverse().map((note) => (
             <Note key={note.id} note={note} onSelectNote={onSelectNote} />
         )) : <p className='noNote'>No notes yet</p> }
     </div>
