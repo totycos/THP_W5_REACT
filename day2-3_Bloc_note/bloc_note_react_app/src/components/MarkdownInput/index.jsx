@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import './index.scss'
 
-const MarkdownInput = ({ onNote, selectNote }) => {
+const MarkdownInput = ({ onNote, selectNote, newNote }) => {
   const [values, setValues] = useState({ id: 0, title: '', text: '' }); 
   
   const handleOnChange = (name) => {  
@@ -31,6 +31,12 @@ const MarkdownInput = ({ onNote, selectNote }) => {
 
   }, [values.id])
 
+  useEffect(() => {
+    let notesToUpdate = JSON.parse(localStorage.notesStorage)
+    const maxId = notesToUpdate.reduce((max, note) => (note.id > max ? note.id : max), -1);
+    setValues({ id: maxId + 1, title: '', text: '' })
+  }, [newNote])
+  
   const handleSave = () => {
     // get notes saved in localStorage and convert them straight in JSON
     let notesToUpdate = JSON.parse(localStorage.notesStorage)

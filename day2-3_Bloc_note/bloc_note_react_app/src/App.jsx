@@ -9,6 +9,7 @@ const App = () => {
     const [note, setNote] = useState([]);
     const [noteList, setNoteList] = useState([])
     const [selectNote, setSelectNote] = useState('')
+    const [newNote, setNewNote] = useState(false)
 
 
     const handleNote = (value) => { // function to set SearchTerm
@@ -27,17 +28,21 @@ const App = () => {
     useEffect(() => {
     }, [selectNote])
 
+    const handleNewNote = () => {
+        setNewNote(!newNote)
+    }
+
 
     return (
         <>
             <div className='leftSideContainer'>
-                <NewNote />
+                <NewNote onNewNote={handleNewNote} />
                 <Notes noteList={noteList} onSelectNote={handleSelectNote} />
             </div>
             
             <div className='rightSideContainer'>
                 <NoteDisplay note={note} selecttNote={selectNote} />
-                <MarkdownInput onNote={handleNote} selectNote={selectNote} />
+                <MarkdownInput onNote={handleNote} selectNote={selectNote} newNote={newNote} />
             </div>
         </>
     )

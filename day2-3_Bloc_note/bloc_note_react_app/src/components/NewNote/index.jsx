@@ -1,11 +1,10 @@
 import React from 'react'
 import './index.scss'
 
-const NewNote = () => {
-
+const NewNote = ({ onNewNote }) => {
 
   return (
-    <p className='newNoteBtn'>New note</p>
+    <p className='newNoteBtn' onClick={onNewNote}>New note</p>
   )
 }
 
