@@ -1,0 +1,36 @@
+$myBlack: rgb(30, 30, 30);
+
+.projects {
+    background-color: $myBlack;
+    display: flex;
+    width: 364px;
+
+    p {
+        color: white;
+        text-decoration: none;
+        padding: 0px 14px;
+        font-size: 14px;
+        width: 88px;
+        margin: 1px 0px;
+        text-align: center;
+    }
+}
+
+.cardContainer {
+    display: flex;
+}
+
+.card {
+    width: 140px;
+    margin: 0px 40px;
+
+    &__title {
+        font-weight: bold;
+    }
+
+    &__content {
+        width: 140px;
+        height:140px;
+        background-color: $myBlack;
+    }
+}

@@ -1,0 +1,12 @@
+$myBlack: rgb(30, 30, 30);
+
+.navbar {
+    background-color: $myBlack;
+
+    a {
+        color: white;
+        text-decoration: none;
+        padding: 16px;
+        font-size: 14px;
+    }
+}
