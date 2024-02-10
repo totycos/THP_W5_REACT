@@ -1,10 +1,11 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  min-height: 100%;
 }
 
 html {
-  background: rgb(239, 250, 255);
-  background: linear-gradient(38deg, rgba(239, 250, 255, 1) 0%, rgba(230, 247, 255, 1) 33%, rgba(228, 245, 255, 1) 66%, rgba(216, 243, 255, 1) 100%);
+  background: linear-gradient(38deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 21%, rgba(237,249,255,1) 22%, rgba(234,247,255,1) 58%, rgba(218,241,255,1) 59%, rgba(218,241,255,1) 100%);
+  min-height: 100%;
 }
 
 a {

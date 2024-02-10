@@ -1,12 +1,13 @@
 import { React } from 'react'
 import FiveDaysWeather from '../../components/FiveDaysWeather'
+import LastSearches from '../../components/LastSearches'
 
 const Home = ({ dataFiveDays }) => {
 
 
     return (
         <>
-            <FiveDaysWeather dataFiveDays={dataFiveDays} />
+            <LastSearches />
         </>
     )
 }

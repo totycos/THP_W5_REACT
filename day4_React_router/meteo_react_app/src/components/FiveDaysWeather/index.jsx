@@ -42,7 +42,7 @@ const FiveDaysWeather = ({ dataFiveDays, onSearch }) => {
 
     return (
         <>
-            <h1 className='city'>{dataFiveDays ? dataFiveDays.city.name : 'Home'} forcast</h1>
+            <h1 className='city'>{dataFiveDays ? dataFiveDays.city.name : 'Home'} Forcast - Next 5 days</h1>
 
             <div className="cardContainer">
                 {dataFiveDays ? [
