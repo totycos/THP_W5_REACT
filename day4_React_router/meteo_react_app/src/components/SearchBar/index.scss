@@ -46,3 +46,16 @@
         padding-top: 4px;
     }
 }
+
+.proposal {
+    border: 4px solid black;
+    font-weight: 900;
+    padding: 6px 14px;
+    border-radius: 5px 0px 5px 5px;
+    box-shadow: 2px 3px 17px 5px rgb(179 203 209 / 82%);
+    position: absolute;
+    right: 20px;
+    top: 51px;
+    background-color: rgb(255 255 255 / 96%);
+    display: none;
+}
