@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { fetchData } from '../services/unsplashApi';
+import { fetchData } from '../services/openweatherApi';
 
 const useOpenweatherApi = () => {
   const [response, setResponse] = useState(null);
@@ -7,9 +7,9 @@ const useOpenweatherApi = () => {
   const [error, setError] = useState(null);
 
 
-  const fetchDataOneDay = async (type = 'weather', location = 'Paris') => {
+  const fetchDataOneDay = async (location = 'Paris', option1 = '/data/2.5', option2 = '/weather') => {
     try {
-      const res = await fetchData(type, location);
+      const res = await fetchData(location, option1, option2);
       setResponse(res);
     } catch (error) {
       setError(error);
@@ -18,10 +18,11 @@ const useOpenweatherApi = () => {
     }
   };
 
-  const fetchDataFiveDays = async (type = 'forecast', location = 'Paris') => {
+  const fetchDataFiveDays = async (location = 'Chamonix', option1 = '/data/2.5', option2 = '/forecast') => {
     try {
-      
-      setResponse((res);
+      console.log(location)
+      const res = await fetchData(location, option1, option2);
+      setResponse(res);
     } catch (error) {
       setError(error);
     } finally {

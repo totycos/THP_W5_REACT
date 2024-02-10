@@ -2,3 +2,11 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+html {
+  background: rgb(239, 250, 255);
+  background: linear-gradient(38deg, rgba(239, 250, 255, 1) 0%, rgba(230, 247, 255, 1) 33%, rgba(228, 245, 255, 1) 66%, rgba(216, 243, 255, 1) 100%);
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,2 +1,14 @@
-const Home = () => <h1>Home</h1>;
-export default Home;
+import { React } from 'react'
+import FiveDaysWeather from '../../components/FiveDaysWeather'
+
+const Home = ({ dataFiveDays }) => {
+
+
+    return (
+        <>
+            <FiveDaysWeather dataFiveDays={dataFiveDays} />
+        </>
+    )
+}
+
+export default Home
