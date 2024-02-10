@@ -10,7 +10,6 @@ import './App.scss'
 
 function App() {
   const { response, loading, error, fetchDataFiveDays } = useOpenweatherApi();
-  const [dataHome, setDataHome] = useState(null)
   const [dataFiveDays, setDataFiveDays] = useState(null)
   const [searchTerm, setSearchTerm] = useState('');
   
@@ -18,28 +17,21 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchDataFiveDays(); 
+        const data = await fetchDataFiveDays(searchTerm); 
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
     fetchData(); 
-  }, []);
+  }, [searchTerm]);
 
   useEffect(() => {
     setDataFiveDays(response);
-    dataHome === null ? setDataHome(response) : dataHome
   },[response])
 
   const onSearch = (term) => {
     setSearchTerm(term)
   }
-
-  useEffect(() => {
-    console.log('searchTerm :', searchTerm)
-    fetchDataFiveDays(searchTerm);
-  }, [searchTerm])
-
 
 
   return (
@@ -47,7 +39,7 @@ function App() {
     <Navbar onSearch={onSearch}/>
     <main>
       <Routes>
-      <Route path="/" element={<Home dataFiveDays={dataHome} />} />
+      <Route path="/" element={<Home  />} />
       <Route path="/City/:cityName" element={<City dataFiveDays={dataFiveDays} onSearch={onSearch}/>} />
       <Route path="/City/:cityName/forecast/:day" element={<Forecast dataFiveDays={dataFiveDays} />} />
       </Routes>

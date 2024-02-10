@@ -1,38 +1,12 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import sun from './img/sun.svg'
-import cloud from './img/cloud.svg'
-import rain from './img/rain.svg'
-import snow from './img/snow.svg'
+import { convertWeatherToImg, convertKelvinToCelsius, convertDatetimeToDate  } from '../../utils/convertUtils';
 import drop from './img/drop.svg'
 import arrow from './img/arrow.svg'
 import './index.scss'
 
 const OneDayWeather = ({ dataFiveDays }) => {
     const { day } = useParams();
-
-    const convertWeatherToImg = (weather) => {
-        if (weather === 'Clear')
-            return sun
-
-        if (weather === 'Clouds')
-            return cloud
-
-        if (weather === 'Rain')
-            return rain
-
-        if (weather === 'Snow')
-            return snow
-    }
-
-    const convertKelvinToCelsius = (kelvin) => {
-        return (kelvin - 273.15).toFixed(1)
-    }
-
-    const convertDatetimeToDate = (datetime) => {
-        const day = new Date(datetime)
-        return day.toLocaleDateString('en-US', { weekday: 'long' })
-    }
 
     const dateToExtract = (data) => {
         let dateToFind = null;

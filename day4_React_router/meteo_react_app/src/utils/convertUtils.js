@@ -1,3 +1,8 @@
+import sun from './img/sun.svg'
+import cloud from './img/cloud.svg'
+import rain from './img/rain.svg'
+import snow from './img/snow.svg'
+
 // Replace weather word by its icone
 export const convertWeatherToImg = (weather) => {
     if (weather === 'Clear')
