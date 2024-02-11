@@ -1,5 +1,13 @@
 $myBlack: rgb(22, 22, 22);
 
+.backArrow {
+    width: 50px;
+    position: absolute;
+    left: 25px;
+    top: 88px;
+    cursor: pointer;
+}
+
 .city {
     margin-left: 12px;
     font-size: 28px;

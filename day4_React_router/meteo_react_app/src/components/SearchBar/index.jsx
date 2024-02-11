@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch }) => {
     const [localSearchTerm, setLocalSearchTerm] = useState('');
     const [showProposal, setShowProposal] = useState(false);
     const [dataCities, setDataCities] = useState(null)
-    const [selectetDone, setSelectDone] = useState(false)
+    const [selectetDone, setSelectDone] = useState(null)
 
     const navigate = useNavigate();
 
@@ -35,7 +35,9 @@ const SearchBar = ({ onSearch }) => {
     }
 
     useEffect(() => {
-        handleSearch()
+        if (selectetDone !== null) {
+            handleSearch()
+        }
     }, [selectetDone])
 
     useEffect(() => {

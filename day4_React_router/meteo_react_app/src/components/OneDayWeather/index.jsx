@@ -1,12 +1,24 @@
-import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import { convertWeatherToImg, convertKelvinToCelsius, convertDatetimeToDate  } from '../../utils/convertUtils';
+import { React, useEffect } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { convertWeatherToImg, convertKelvinToCelsius, convertDatetimeToDate } from '../../utils/convertUtils';
 import drop from './img/drop.svg'
 import arrow from './img/arrow.svg'
+import backArrow from './img/goBackArrow.svg'
+
 import './index.scss'
 
 const OneDayWeather = ({ dataFiveDays }) => {
+    const navigate = useNavigate()
     const { day } = useParams();
+    const { cityName } = useParams()
+
+    useEffect(() => {
+        if (cityName) {
+            console.log('cityName :', cityName);
+            //onSearch(cityName);
+            navigate(`/City/${cityName}/forecast/${day}`);
+        }
+    }, [cityName, day]);
 
     const dateToExtract = (data) => {
         let dateToFind = null;
@@ -21,6 +33,9 @@ const OneDayWeather = ({ dataFiveDays }) => {
 
     return (
         <div>
+            <Link to={`/City/${cityName}`} >
+                <img className='backArrow' src={backArrow} alt="go back"/>
+            </Link>
             <h1>{dataFiveDays ? dataFiveDays.city.name : ''} Forcast - {day.charAt(0).toUpperCase() + day.slice(1)} </h1>
 
             <div className="cardContainer2">

@@ -1,22 +1,26 @@
 import { React, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { convertWeatherToImg, convertKelvinToCelsius, convertDatetimeToDate  } from '../../utils/convertUtils';
+import backArrow from './img/goBackArrow.svg'
 import './index.scss'
 
 const FiveDaysWeather = ({ dataFiveDays, onSearch }) => {
-    const navigate = useNavigate
+    const navigate = useNavigate()
     const { cityName } = useParams()
 
     useEffect(() => {
         if (cityName) {
             console.log('cityName :', cityName);
             onSearch(cityName);
-            // navigate(`/City/${cityName}`);
+            navigate(`/City/${cityName}`);
         }
     }, [cityName, onSearch]);
 
     return (
         <>
+            <Link to={`/`} >
+                <img className='backArrow' src={backArrow} alt="go back"/>
+            </Link>
             <h1 className='city'>{dataFiveDays ? dataFiveDays.city.name : ''} Forcast - Next 5 days</h1>
 
             <div className="cardContainer">
