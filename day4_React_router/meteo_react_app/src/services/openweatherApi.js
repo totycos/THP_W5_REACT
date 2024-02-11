@@ -7,8 +7,6 @@ export const fetchData = async (location, option1, option2) => {
 
     // Build final URL
     let finalUrl = `${BASE_URL}${option1}${option2}?lat=${responseGpsJson.city.coord.lat}&lon=${responseGpsJson.city.coord.lon}&${API_ID}`
-    console.log('finalUrl :', finalUrl)
-    // https://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=41556d62527a7d612364820c20241385
 
 
     try {

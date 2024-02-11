@@ -2,7 +2,7 @@ const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=5000&
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '7f8c80d45emsh3c84f5a5c62baaep134146jsnc77655cfcb48',
+        'X-RapidAPI-Key': `${import.meta.env.VITE_RAPID_API_KEY}`,
         'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
     }
 };
