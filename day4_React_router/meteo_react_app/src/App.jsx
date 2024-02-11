@@ -41,7 +41,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home  />} />
       <Route path="/City/:cityName" element={<City dataFiveDays={dataFiveDays} onSearch={onSearch}/>} />
-      <Route path="/City/:cityName/forecast/:day" element={<Forecast dataFiveDays={dataFiveDays} />} />
+      <Route path="/City/:cityName/forecast/:day" element={<Forecast dataFiveDays={dataFiveDays} onSearch={onSearch} />} />
       </Routes>
     </main>
     <Footer />

@@ -30,8 +30,8 @@ const FiveDaysWeather = ({ dataFiveDays, onSearch }) => {
                     dataFiveDays.list[16],
                     dataFiveDays.list[24],
                     dataFiveDays.list[32]
-                ].map(day => (
-                    <Link to={`/City/${dataFiveDays.city.name}/forecast/${convertDatetimeToDate(day.dt_txt)}`} key={day.dt_txt} >
+                ].map((day) => (
+                    <Link to={`/City/${dataFiveDays.city.name}/forecast/${convertDatetimeToDate(day.dt_txt)}`} key={day.dt_txt} className='cardWrapper'>
                         <div className="card" >
                             <p className="card__date">{convertDatetimeToDate(day.dt_txt)}</p>
                             <img className="card__weatherDescription" src={convertWeatherToImg(day.weather[0].main)} />

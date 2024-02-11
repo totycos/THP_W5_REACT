@@ -1,12 +1,12 @@
 import React from 'react'
 import OneDayWeather from '../../components/OneDayWeather'
 
-const Forecast = ({dataFiveDays}) => {
+const Forecast = ({dataFiveDays, onSearch}) => {
 
 
   return (
     <>
-    <OneDayWeather dataFiveDays={dataFiveDays} />
+    <OneDayWeather dataFiveDays={dataFiveDays} onSearch={onSearch} />
     </>
   )
 }

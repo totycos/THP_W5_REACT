@@ -8,14 +8,18 @@ $myBlack: rgb(22, 22, 22);
     cursor: pointer;
 }
 
-h1 {
+.city {
+    margin-left: 12px;
+    font-size: 28px;
     text-align: center;
+    margin: 20px 80px;
 }
 
 .city {
     margin-left: 12px;
     font-size: 28px;
     text-align: center;
+    margin: 20px 80px;
 }
 
 .cardContainer2 {
@@ -26,10 +30,14 @@ h1 {
     max-width: 588px;
 }
 
+.cardWrapper2 {
+    animation: float2 10s ease-in-out infinite;
+}
+
 .card2 {
     height: fit-content;
-    width: 106px;
-    min-width: 106px;
+    width: 118px;
+    min-width: 118px;
     border: 4px solid $myBlack;
     text-align: center;
     border-radius: 10px;
@@ -38,6 +46,8 @@ h1 {
     box-shadow: 2px 3px 17px 5px rgb(179 203 209 / 82%);
     position: relative;
     background-color: #ffffffd1;
+    transform: translatey(0px) translatex(0px);
+	animation: float 14s ease-in-out infinite;
 
     &__date {
         font-weight: bold;
@@ -53,7 +63,7 @@ h1 {
         font-size: 18px;
         font-weight: 600;
         position: absolute;
-        top: 30px;
+        top: 26px;
         left: 60px;
         color: #0f5a78;
     }
@@ -75,5 +85,45 @@ h1 {
         > img {
             width: 14px;
         }
+    }
+}
+
+@keyframes float {
+    0% {
+        box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.1);
+        transform: translatey(0px);
+    }
+
+    25% {
+        transform: translatey(-5px);
+    }
+
+    50% {
+        box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.1);
+        transform: translatey(0px);
+    }
+
+    75% {
+        transform: translatey(-5px);
+    }
+
+    100% {
+        box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.1);
+        transform: translatey(0px);
+    }
+}
+
+
+@keyframes float2 {
+    0% {
+        transform: translatex(0px);
+    }
+
+    50% {
+        transform: translatex(-5px);
+    }
+
+    100% {
+        transform: translatex(0px);
     }
 }

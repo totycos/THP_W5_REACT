@@ -12,6 +12,7 @@ $myBlack: rgb(22, 22, 22);
     margin-left: 12px;
     font-size: 28px;
     text-align: center;
+    margin: 20px 80px;
 }
 
 .cardContainer {
@@ -19,6 +20,10 @@ $myBlack: rgb(22, 22, 22);
     flex-wrap: wrap;
     margin: auto;
     justify-content: center;
+}
+
+.cardWrapper     {
+    animation: float2 10s ease-in-out infinite;
 }
 
 .card {
@@ -30,15 +35,17 @@ $myBlack: rgb(22, 22, 22);
     border-radius: 10px;
     margin: 10px;
     color: $myBlack;
-    box-shadow: 2px 3px 17px 5px rgb(179 203 209 / 82%);;
+    box-shadow: 2px 3px 17px 5px rgb(179 203 209 / 82%);
     background-color: rgb(255 255 255 / 35%);
+    transform: translatey(0px) translatex(0px);
+	animation: float 14s ease-in-out infinite;
 
     &__date {
         font-weight: bold;
         margin: 10px 0 5px 0;
     }
 
-    > img {
+    >img {
         width: 100px;
     }
 
@@ -49,5 +56,45 @@ $myBlack: rgb(22, 22, 22);
             color: #0f5a78;
             font-weight: 600;
         }
+    }
+}
+
+@keyframes float {
+    0% {
+        box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.1);
+        transform: translatey(0px);
+    }
+
+    25% {
+        transform: translatey(-5px);
+    }
+
+    50% {
+        box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.1);
+        transform: translatey(0px);
+    }
+
+    75% {
+        transform: translatey(-5px);
+    }
+
+    100% {
+        box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.1);
+        transform: translatey(0px);
+    }
+}
+
+
+@keyframes float2 {
+    0% {
+        transform: translatex(0px);
+    }
+
+    50% {
+        transform: translatex(-5px);
+    }
+
+    100% {
+        transform: translatex(0px);
     }
 }
